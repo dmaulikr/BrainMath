@@ -54,7 +54,7 @@
     
     _yourScore = 0;
     
-    _lblYourScore.text = [NSString stringWithFormat:@"%d",_yourScore];
+    _lblYourScore.text = [NSString stringWithFormat:@"%ld",(long)_yourScore];
     _lblDieScore.text = @"0";
     
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"BestScore"]) {
@@ -94,8 +94,8 @@
         _total = _numberA + _numberB - _plus;
     }
     
-    _lblQuestion.text = [NSString stringWithFormat:@"%d + %d",_numberA,_numberB];
-    _lblResult.text = [NSString stringWithFormat:@"= %d",_total];
+    _lblQuestion.text = [NSString stringWithFormat:@"%ld + %ld",(long)_numberA,(long)_numberB];
+    _lblResult.text = [NSString stringWithFormat:@"= %ld",(long)_total];
     
     _timer = [NSTimer scheduledTimerWithTimeInterval:TIME
                                                     target:self
@@ -133,7 +133,7 @@
 
 -(void)saveBestScore{
     if (_yourScore > [[[NSUserDefaults standardUserDefaults] objectForKey:@"BestScore"] integerValue]) {
-        [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%d",_yourScore] forKey:@"BestScore"];
+        [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%ld",(long)_yourScore] forKey:@"BestScore"];
     }else{
         //
     }
@@ -163,8 +163,8 @@
     }else{
         
         _yourScore++;
-        _lblYourScore.text = [NSString stringWithFormat:@"%d",_yourScore];
-        _lblDieScore.text = [NSString stringWithFormat:@"%d",_yourScore];
+        _lblYourScore.text = [NSString stringWithFormat:@"%ld",(long)_yourScore];
+        _lblDieScore.text = [NSString stringWithFormat:@"%ld",(long)_yourScore];
         [self saveBestScore];
         
         [self setUpGame];
@@ -182,8 +182,8 @@
     }else{
         
         _yourScore++;
-        _lblYourScore.text = [NSString stringWithFormat:@"%d",_yourScore];
-        _lblDieScore.text = [NSString stringWithFormat:@"%d",_yourScore];
+        _lblYourScore.text = [NSString stringWithFormat:@"%ld",(long)_yourScore];
+        _lblDieScore.text = [NSString stringWithFormat:@"%ld",(long)_yourScore];
         [self saveBestScore];
         
         [self setUpGame];
@@ -195,7 +195,7 @@
     //
     _yourScore = 0;
     _lblDieScore.text = @"0";
-    _lblYourScore.text = [NSString stringWithFormat:@"%d",_yourScore];
+    _lblYourScore.text = [NSString stringWithFormat:@"%ld",(long)_yourScore];
  
     
     //
